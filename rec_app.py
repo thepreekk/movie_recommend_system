@@ -26,7 +26,21 @@ def recommend(movie):
 
     return recommended_movie_names, recommended_movie_posters
 
+def add_bg_from_url():
+    st.markdown(
+         f"""
+         <style>
+         .stApp {{
+             background-image: url("https://jsis.washington.edu/global/wp-content/uploads/sites/17/2022/03/clip-of-film-reel-and-classic-camera-spinning-with-right-side-light-and-warm-background-in-4k-free-video-1140x641.jpg");
+             background-attachment: fixed;
+             background-size: cover
+         }}
+         </style>
+         """,
+         unsafe_allow_html=True
+     )
 
+add_bg_from_url()
 st.header("Movie Recommender System")
 movies = pickle.load(open('movie_list.pkl', 'rb'))
 similarity = pickle.load(open('similarity.pkl', 'rb'))
